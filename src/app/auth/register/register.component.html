@@ -5,38 +5,46 @@
     </div>
     <div class="login-form">
       <p class="simple-text">Create your account</p>
-      <form name="registerForm" class="form">
+      <form [formGroup]="registerForm" novalidate (ngSubmit)="registerUser()" class="form">
         <div class="inner-form-block">
           <label for="input-form-name">Name</label>
           <input id="input-form-name"
                  placeholder="Enter your first or last name"
+                 formControlName="name"
                  type="text"/>
+          <p *ngIf="registerForm.controls['name'].invalid">notvalid</p>
         </div>
         <div class="inner-form-block">
           <label for="input-form-email">Email</label>
           <input id="input-form-email"
                  placeholder="Enter your email"
+                 formControlName="email"
                  type="email"/>
+          <p *ngIf="registerForm.controls['email'].invalid">notvalid</p>
         </div>
         <div class="inner-form-block">
           <label for="input-form-password">Password</label>
           <input id="input-form-password"
                  placeholder="Enter password"
+                 formControlName="password"
                  type="password"/>
+          <p *ngIf="registerForm.controls['password'].invalid">notvalid</p>
         </div>
         <div class="inner-form-block">
           <label for="input-form-repeat-password">Repeat password</label>
           <input id="input-form-repeat-password"
                  placeholder="Re-enter password"
+                 formControlName="repeatPassword"
                  type="password"/>
+          <p *ngIf="registerForm.controls['repeatPassword'].invalid && registerForm.controls['repeatPassword'].touched">notvalid</p>
         </div>
         <div class="inner-form-block">
-          <button class="btn-submit" type="submit">Create account</button>
+          <button class="btn-submit" [disabled]="registerForm.invalid" type="submit">Create account</button>
         </div>
       </form>
     </div>
     <div class="link_block">
-      <a class="base-links">I already have an account</a>
+      <a class="base-links" routerLink="login">I already have an account</a>
     </div>
   </div>
 </div>
