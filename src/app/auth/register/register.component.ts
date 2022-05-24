@@ -33,9 +33,6 @@ export class RegisterComponent implements OnInit {
     console.log(this.registerForm)
   }
 
-  validFunc(control1: FormControl, control2: FormControl): {[s:string]:boolean}|null{
-    return control1.value === control2.value ? null : {repeatPassword: true}
-  }
 }
 
 
