@@ -26,19 +26,18 @@
   background-color: #F4F9FF;
   font-style: normal;
   font-weight: 700;
-  font-size: 24px;
   line-height: 57px;
 }
 
-.login-header-text-first {
+.main-title {
+  font-size: 24px;
   margin-left: 45px;
 }
 
-.login-header-text-second {
+.main-title-second {
   color: #60a1ff;
   margin-left: 5px;
 }
-
 
 .login{
   height: 546px;
@@ -52,6 +51,7 @@
 }
 
 .simple-text {
+  margin-left: 45px;
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
