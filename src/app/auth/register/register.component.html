@@ -12,7 +12,7 @@
                  placeholder="Enter your first or last name"
                  formControlName="name"
                  type="text"/>
-          <p *ngIf="registerForm.controls['name'].invalid">notvalid</p>
+          <p *ngIf="registerForm.controls['name'].invalid && registerForm.controls['name'].touched">notvalid</p>
         </div>
         <div class="inner-form-block">
           <label for="input-form-email">Email</label>
@@ -20,7 +20,7 @@
                  placeholder="Enter your email"
                  formControlName="email"
                  type="email"/>
-          <p *ngIf="registerForm.controls['email'].invalid">notvalid</p>
+          <p *ngIf="registerForm.controls['email'].invalid && registerForm.controls['email'].touched">notvalid</p>
         </div>
         <div class="inner-form-block">
           <label for="input-form-password">Password</label>
@@ -28,7 +28,7 @@
                  placeholder="Enter password"
                  formControlName="password"
                  type="password"/>
-          <p *ngIf="registerForm.controls['password'].invalid">notvalid</p>
+          <p *ngIf="registerForm.controls['password'].invalid && registerForm.controls['password'].touched">notvalid</p>
         </div>
         <div class="inner-form-block">
           <label for="input-form-repeat-password">Repeat password</label>
@@ -36,10 +36,10 @@
                  placeholder="Re-enter password"
                  formControlName="repeatPassword"
                  type="password"/>
-          <p *ngIf="registerForm.controls['repeatPassword'].invalid && registerForm.controls['repeatPassword'].touched">notvalid</p>
+          <p *ngIf="registerForm.controls['repeatPassword'].invalid">notvalid</p>
         </div>
         <div class="inner-form-block">
-          <button class="btn-submit" [disabled]="registerForm.invalid" type="submit">Create account</button>
+          <button class="btn-submit" type="submit">Create account</button>
         </div>
       </form>
     </div>

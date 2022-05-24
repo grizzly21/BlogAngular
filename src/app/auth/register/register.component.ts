@@ -1,13 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, ValidatorFn, Validators} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../service/auth.service";
+import {PasswordMatchValidator} from "../../common/validators/password-match.validator";
 
-// @ts-ignore
-const PasswordMatchValidator: ValidatorFn = (fg: FormGroup) => {
-  const password = fg.get('password')?.value;
-  const repeatPassword = fg.get('repeatPassword')?.value;
-  return password === repeatPassword ? null : {repeatPassword: true};
-};
 
 @Component({
   selector: 'app-register',
@@ -16,24 +11,32 @@ const PasswordMatchValidator: ValidatorFn = (fg: FormGroup) => {
 })
 export class RegisterComponent implements OnInit {
 
-  registerForm!: FormGroup;
+  registerForm = new FormGroup({
+    name: new FormControl(null, Validators.required),
+    email: new FormControl(null, [Validators.required, Validators.email]),
+    password: new FormControl(null, [
+      Validators.required,
+      Validators.pattern("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$")]),
+    repeatPassword: new FormControl(null),
+  }, {validators: PasswordMatchValidator()});
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
-    this.registerForm = this.fb.group({
-      name: [null, Validators.required],
-      email: [null, Validators.compose([Validators.required, Validators.email])],
-      password: [null, Validators.compose([
-        Validators.required,
-        Validators.pattern("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$")])],
-      repeatPassword: [null, Validators.compose([Validators.required, PasswordMatchValidator])],
-    }, {validator: PasswordMatchValidator})
+  constructor(private authService: AuthService) {
+
   }
 
   ngOnInit(): void {
   }
 
-
   registerUser(){
+    if(this.registerForm.valid)
     this.authService.registerUser(this.registerForm.value).subscribe(res => {console.log(res)})
+    console.log(this.registerForm)
+  }
+
+  validFunc(control1: FormControl, control2: FormControl): {[s:string]:boolean}|null{
+    return control1.value === control2.value ? null : {repeatPassword: true}
   }
 }
+
+
+
