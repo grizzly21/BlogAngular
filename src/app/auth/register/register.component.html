@@ -1,42 +1,41 @@
 <div class="flex-container">
   <div class="login-container">
     <div class="login-header">
-      <h1 class="main-title">ELEKS <span class="main-title main-title-second">BLOG</span></h1>
+      <h1 class="main-title">
+        ELEKS <span class="main-title main-title-second">BLOG</span>
+      </h1>
     </div>
     <div class="login-form">
       <p class="simple-text">Create your account</p>
       <form [formGroup]="registerForm" novalidate (ngSubmit)="registerUser()" class="form">
         <div class="inner-form-block">
           <label for="input-form-name">Name</label>
-          <input id="input-form-name"
-                 placeholder="Enter your first or last name"
-                 formControlName="name"
-                 type="text"/>
-          <p *ngIf="registerForm.controls['name'].invalid && registerForm.controls['name'].touched">notvalid</p>
+          <input id="input-form-name" placeholder="Enter your first or last name" formControlName="name" type="text" />
+          <div class="validation-warning" *ngIf="registerForm.controls['name'].invalid && registerForm.controls['name'].touched">
+            <p>Enter your name</p>
+          </div>
         </div>
         <div class="inner-form-block">
           <label for="input-form-email">Email</label>
-          <input id="input-form-email"
-                 placeholder="Enter your email"
-                 formControlName="email"
-                 type="email"/>
-          <p *ngIf="registerForm.controls['email'].invalid && registerForm.controls['email'].touched">notvalid</p>
+          <input id="input-form-email" placeholder="Enter your email" formControlName="email" type="email" />
+          <div class="validation-warning" *ngIf="registerForm.controls['email'].invalid && registerForm.controls['email'].touched">
+            <p>Enter your email</p>
+          </div>
         </div>
         <div class="inner-form-block">
           <label for="input-form-password">Password</label>
-          <input id="input-form-password"
-                 placeholder="Enter password"
-                 formControlName="password"
-                 type="password"/>
-          <p *ngIf="registerForm.controls['password'].invalid && registerForm.controls['password'].touched">notvalid</p>
+          <input id="input-form-password" placeholder="Enter password" formControlName="password" type="password" />
+          <div class="validation-warning" *ngIf="registerForm.controls['password'].invalid && registerForm.controls['password'].touched">
+            <p>Enter your password</p>
+          </div>
         </div>
         <div class="inner-form-block">
           <label for="input-form-repeat-password">Repeat password</label>
-          <input id="input-form-repeat-password"
-                 placeholder="Re-enter password"
-                 formControlName="repeatPassword"
-                 type="password"/>
-          <p *ngIf="registerForm.controls['repeatPassword'].invalid">notvalid</p>
+          <input id="input-form-repeat-password" placeholder="Re-enter password" formControlName="repeatPassword"
+            type="password" />
+          <div class="validation-warning" *ngIf="registerForm.controls['repeatPassword'].invalid && registerForm.controls['repeatPassword'].touched">
+            <p>Password is not match</p>
+          </div>
         </div>
         <div class="inner-form-block">
           <button class="btn-submit" type="submit">Create account</button>
