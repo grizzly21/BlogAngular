@@ -2,7 +2,7 @@
   <div class="login-container">
     <div class="login-header">
       <h1 class="main-title">
-        ELEKS <span class="main-title main-title-second">BLOG</span>
+        ELEKS <span class="main-title-second">BLOG</span>
       </h1>
     </div>
     <div class="login-form">
@@ -42,7 +42,7 @@
           </div>
         </div>
         <div class="inner-form-block">
-          <button class="btn-submit" type="submit">Create account</button>
+          <button class="btn-submit" type="submit" [disabled]="this.registerForm.invalid">Create account</button>
         </div>
       </form>
     </div>

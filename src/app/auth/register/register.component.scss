@@ -158,6 +158,12 @@ input.checkbox{
   line-height: 24px;
   transition: background-color 0.1s linear;
 }
+.btn-submit:disabled{
+  opacity: .5;
+}
+.btn-submit:disabled:hover{
+  background-color: #3884F2;
+}
 
 button:hover {
   background-color: #2065CA;

@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css', '../register/register.component.css']
+  styleUrls: ['./login.component.scss', '../register/register.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   rememberUser: boolean = false;
 
@@ -15,16 +17,24 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', Validators.required)
   });
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  constructor(
+    private authService: AuthService,
+    private router: Router
+    ) { }
 
   login(){
-    console.log(this.loginForm.value)
-    if(!this.rememberUser){
-      alert("ok")
-    }
+    this.authService.loginUser(this.loginForm.value).subscribe({
+      next: data => {
+        let result = JSON.parse(data);
+        if(result.token){
+          !this.rememberUser ? sessionStorage.setItem('token', result.token) : localStorage.setItem('token', result.token);
+          this.router.navigate(['top-stories'])
+        }
+      },
+      error: err => {
+        alert(err.error);
+        this.loginForm.reset();
+      }
+    })
   }
-
 }
