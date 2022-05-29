@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../service/auth.service";
 import {PasswordMatchValidator} from "../../common/validators/password-match.validator";
@@ -7,9 +7,9 @@ import {PasswordMatchValidator} from "../../common/validators/password-match.val
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnDestroy {
 
   registerForm = new FormGroup({
     name: new FormControl(null, Validators.required),
@@ -24,16 +24,12 @@ export class RegisterComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {
-  }
-
   registerUser(){
     if(this.registerForm.valid)
     this.authService.registerUser(this.registerForm.value).subscribe(res => {console.log(res)})
-    console.log(this.registerForm)
   }
 
+  ngOnDestroy(): void {
+    
+  }
 }
-
-
-

@@ -43,7 +43,7 @@
   height: 546px;
 }
 .login form{
-  height: 250px;
+  height: 260px;
 }
 
 .login-form {
@@ -102,6 +102,23 @@ input:focus {
   border: 1px solid #BFC4CA;
 }
 
+.inner-form-checkbox{
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.checkbox{
+  margin: 5px 5px 5px 0;
+}
+
+input.checkbox{
+  width: 16px;
+  height: 16px;
+}
+
+
 
 /* Validation */
 
@@ -141,6 +158,12 @@ input:focus {
   line-height: 24px;
   transition: background-color 0.1s linear;
 }
+.btn-submit:disabled{
+  opacity: .5;
+}
+.btn-submit:disabled:hover{
+  background-color: #3884F2;
+}
 
 button:hover {
   background-color: #2065CA;
@@ -161,4 +184,10 @@ button:hover {
   font-weight: 400;
   line-height: 24px;
   color: #3884F2;
+  transition: color .2s ease;
+}
+
+.base-links:hover{
+  cursor: pointer;
+  color: #1357b6;
 }
