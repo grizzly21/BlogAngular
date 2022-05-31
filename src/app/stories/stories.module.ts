@@ -6,6 +6,7 @@ import { TopStoriesComponent } from './top-stories/top-stories.component';
 import { StoryComponent } from './story/story.component';
 import { AddStoryComponent } from './add-story/add-story.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,9 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     AddStoryComponent,
     UserProfileComponent
   ],
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    RouterModule
+  ],
 })
 export class StoriesModule {}
