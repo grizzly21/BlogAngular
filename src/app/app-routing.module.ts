@@ -6,13 +6,13 @@ import { TopStoriesComponent } from './stories/top-stories/top-stories.component
 import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
   {
-    path: 'top-stories',
+    path: '',
     component: TopStoriesComponent,
     canActivate: [AuthGuard],
   },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({

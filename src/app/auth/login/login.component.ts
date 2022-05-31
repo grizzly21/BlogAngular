@@ -26,7 +26,7 @@ export class LoginComponent {
           !this.rememberUser
             ? sessionStorage.setItem('token', result.token)
             : localStorage.setItem('token', result.token);
-          this.router.navigate(['top-stories']);
+          this.router.navigate(['']);
         }
       },
       error: (err) => {

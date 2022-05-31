@@ -3,22 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {AuthModule} from "./auth/auth.module";
+import { AuthModule } from './auth/auth.module';
 import { TopStoriesComponent } from './stories/top-stories/top-stories.component';
 import { StoryComponent } from './stories/story/story.component';
+import { StoriesModule } from './stories/stories.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TopStoriesComponent,
-    StoryComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    AuthModule
-  ],
+  declarations: [AppComponent, TopStoriesComponent, StoryComponent],
+  imports: [BrowserModule, AppRoutingModule, AuthModule, StoriesModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
