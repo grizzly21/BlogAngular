@@ -7,6 +7,7 @@ import { StoryComponent } from './story/story.component';
 import { AddStoryComponent } from './add-story/add-story.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { RouterModule } from '@angular/router';
+import { StoriesService } from '../common/services/stories.service';
 
 @NgModule({
   declarations: [
@@ -21,5 +22,6 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     RouterModule
   ],
+  providers: [StoriesService]
 })
 export class StoriesModule {}

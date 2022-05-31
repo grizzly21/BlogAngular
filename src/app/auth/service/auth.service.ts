@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-
+import { apiUrl } from 'src/app/common/api-url';
 
 @Injectable({
   providedIn: 'root'
@@ -13,10 +13,9 @@ export class AuthService {
     private http: HttpClient
   ) { }
 
-  private apiURL = 'https://homa-blog.azurewebsites.net/';
 
   registerUser(body: any){
-    return this.http.post(this.apiURL + 'reqister', JSON.stringify({
+    return this.http.post(apiUrl + 'reqister', JSON.stringify({
       email: body.email,
       password: body.password,
       displayName: body.name
@@ -28,7 +27,7 @@ export class AuthService {
   }
 
   loginUser(body: any){
-    return this.http.post(this.apiURL + 'login', JSON.stringify({
+    return this.http.post(apiUrl + 'login', JSON.stringify({
       email: body.email,
       password: body.password
     }), {

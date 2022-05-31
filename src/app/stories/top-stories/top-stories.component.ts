@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StoriesService } from 'src/app/common/services/stories.service';
 
 @Component({
   selector: 'app-top-stories',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopStoriesComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private storiesService: StoriesService
+  ) { }
 
   ngOnInit(): void {
+    this.storiesService.getAllStories().subscribe({
+      next: (response) => {
+        console.log(response)
+      },
+      error: (err) =>{
+        console.log(err)
+      }
+    })
   }
 
 }
