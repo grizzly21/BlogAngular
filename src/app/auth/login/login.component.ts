@@ -6,35 +6,33 @@ import { AuthService } from '../service/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss', '../register/register.component.scss']
+  styleUrls: ['./login.component.scss', '../register/register.component.scss'],
 })
 export class LoginComponent {
-
   rememberUser: boolean = false;
 
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', Validators.required)
+    password: new FormControl('', Validators.required),
   });
 
-  constructor(
-    private authService: AuthService,
-    private router: Router
-    ) { }
+  constructor(private authService: AuthService, private router: Router) {}
 
-  login(){
+  login() {
     this.authService.loginUser(this.loginForm.value).subscribe({
-      next: data => {
+      next: (data) => {
         let result = JSON.parse(data);
-        if(result.token){
-          !this.rememberUser ? sessionStorage.setItem('token', result.token) : localStorage.setItem('token', result.token);
-          this.router.navigate(['top-stories'])
+        if (result.token) {
+          !this.rememberUser
+            ? sessionStorage.setItem('token', result.token)
+            : localStorage.setItem('token', result.token);
+          this.router.navigate(['top-stories']);
         }
       },
-      error: err => {
+      error: (err) => {
         alert(err.error);
         this.loginForm.reset();
-      }
-    })
+      },
+    });
   }
 }
