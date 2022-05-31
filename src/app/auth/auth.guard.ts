@@ -1,31 +1,30 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, CanDeactivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
+import {
+  ActivatedRouteSnapshot,
+  CanActivate,
+  Router,
+  RouterStateSnapshot,
+} from '@angular/router';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class AuthGuard implements CanActivate, CanDeactivate<unknown> {
+export class AuthGuard implements CanActivate {
+  constructor(private router: Router) {}
 
-  constructor(
-    private router: Router
-  ){}
+  private readonly token = 'token';
 
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      if(localStorage.getItem('token') || sessionStorage.getItem('token')){
-        return true;
-      }
-      this.router.navigate(['login']);
-      return false;
+    state: RouterStateSnapshot
+  ): boolean {
+    if (
+      localStorage.getItem(this.token) ||
+      sessionStorage.getItem(this.token)
+    ) {
+      return true;
+    }
+    this.router.navigate(['login']);
+    return false;
   }
-  canDeactivate(
-    component: unknown,
-    currentRoute: ActivatedRouteSnapshot,
-    currentState: RouterStateSnapshot,
-    nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return true;
-  }
-  
 }
