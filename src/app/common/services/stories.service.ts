@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map, Observable } from 'rxjs';
 import { apiUrl } from '../api-url';
+import { IStory } from '../interfaces/story.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -8,13 +10,11 @@ import { apiUrl } from '../api-url';
 export class StoriesService {
   constructor(private http: HttpClient) {}
 
-  getAllStories(){
-    return this.http.get(apiUrl + 'posts', {
+  getAllStories(): Observable<IStory[]>{
+    return this.http.get<IStory[]>(apiUrl + 'posts', {
       headers: {
-        'accept': 'application/json',
-        'Content-Type': 'application/json',
         'Authorization': `Bearer ${localStorage.getItem('token')}`
-      }
+      },
     })
   }
 }
