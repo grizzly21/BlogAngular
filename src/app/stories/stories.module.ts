@@ -9,7 +9,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { RouterModule } from '@angular/router';
 import { StoriesService } from '../common/services/stories.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HttpInterceptorService } from '../common/services/http-interceptor.servise';
+import { HttpInterceptorService } from '../common/services/http-interceptor.service';
 
 @NgModule({
   declarations: [

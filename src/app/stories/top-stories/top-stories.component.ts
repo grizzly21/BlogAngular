@@ -23,4 +23,25 @@ export class TopStoriesComponent implements OnInit {
       }
     );
   }
+  likeOrUnlikeStory(id: string, isLiked: boolean){
+    if(!isLiked){
+      this.storiesService.like(id).subscribe(
+        (next) => {
+          console.log(next)
+        },
+        (err) => {
+          console.log(err)
+        }
+      )
+    }else{
+      this.storiesService.unlike(id).subscribe(
+        (next) => {
+          console.log(next)
+        },
+        (err) => {
+          console.log(err)
+        }
+      )
+    }
+  }
 }

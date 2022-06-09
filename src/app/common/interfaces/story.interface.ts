@@ -7,6 +7,7 @@ export interface IStory {
   title: string;
   content: string;
   imageUrl: string;
+  isLikedByCurrentUser: boolean;
   likesCount: number;
   author: IUser;
 }
