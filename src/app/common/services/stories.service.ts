@@ -11,10 +11,6 @@ export class StoriesService {
   constructor(private http: HttpClient) {}
 
   getAllStories(): Observable<IStory[]>{
-    return this.http.get<IStory[]>(apiUrl + 'posts', {
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('token')}`
-      },
-    })
+    return this.http.get<IStory[]>(apiUrl + 'posts')
   }
 }

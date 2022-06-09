@@ -8,6 +8,8 @@ import { AddStoryComponent } from './add-story/add-story.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { RouterModule } from '@angular/router';
 import { StoriesService } from '../common/services/stories.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpInterceptorService } from '../common/services/http-interceptor.servise';
 
 @NgModule({
   declarations: [
@@ -16,12 +18,16 @@ import { StoriesService } from '../common/services/stories.service';
     TopStoriesComponent,
     StoryComponent,
     AddStoryComponent,
-    UserProfileComponent
+    UserProfileComponent,
   ],
-  imports: [
-    CommonModule,
-    RouterModule
+  imports: [CommonModule, RouterModule],
+  providers: [
+    StoriesService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorService,
+      multi: true,
+    },
   ],
-  providers: [StoriesService]
 })
 export class StoriesModule {}

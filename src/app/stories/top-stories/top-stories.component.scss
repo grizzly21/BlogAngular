@@ -92,8 +92,21 @@ $boxShadowColor: rgba(0, 0, 0, 0.05);
     }
 
     &-article {
+      height: 28%;
       font-size: 14px;
-      line-height: 20px;
+      line-height: 21px;
+      -ms-text-overflow: ellipsis;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      -ms-line-clamp: 4;
+      -webkit-line-clamp: 4;
+      line-clamp: 4;
+      display: -webkit-box;
+      display: box;
+      word-wrap: break-word;
+      -webkit-box-orient: vertical;
+      box-orient: vertical;
     }
 
     &-footer {
