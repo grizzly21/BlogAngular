@@ -1,0 +1,38 @@
+.small-container {
+  width: 580px;
+  margin: 91px auto;
+  display: flex;
+  justify-content: space-between;
+
+  .form-block {
+    width: 327px;
+
+    form {
+      display: flex;
+      flex-direction: column;
+
+      label{
+        margin-top: 20px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        color: #3c4247;
+      }
+      input{
+        width: 100%;
+        height: 48px;
+        margin-top: 4px;
+        padding: 12px;
+        background-color: #fff;
+        border: 1px solid #BFC4CA;
+        border-radius: 6px;
+        outline: none;
+
+      }
+    }
+  }
+  .avatar-block {
+    width: 174px;
+  }
+}
