@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "EleksAngular": {
+    "AndrewAngular": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/eleks-angular",
+            "outputPath": "dist/andrew-angular",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -71,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "EleksAngular:build:production"
+              "browserTarget": "AndrewAngular:build:production"
             },
             "development": {
-              "browserTarget": "EleksAngular:build:development"
+              "browserTarget": "AndrewAngular:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "EleksAngular:build"
+            "browserTarget": "AndrewAngular:build"
           }
         },
         "test": {
@@ -105,5 +105,5 @@
       }
     }
   },
-  "defaultProject": "EleksAngular"
+  "defaultProject": "AndrewAngular"
 }

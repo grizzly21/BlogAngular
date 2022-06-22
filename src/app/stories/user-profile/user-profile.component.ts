@@ -20,7 +20,6 @@ export class UserProfileComponent{
 
     reader.onload = () => {
       this.avatarFile = reader.result as string;
-
     }
   }
 }
