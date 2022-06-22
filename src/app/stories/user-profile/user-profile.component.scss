@@ -46,6 +46,19 @@
         height: 174px;
         background-color: #d0d4d9;
         border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        label{
+          margin-top: 4px;
+          cursor: pointer;
+          opacity: 0.5;
+        }
+
+        input{
+          display: none;
+        }
       }
 
       .upload-avatar {
