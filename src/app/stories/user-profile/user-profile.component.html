@@ -1,18 +1,29 @@
 <div class="small-container">
-  <div class="form-block">
-    <h2 class="">Edit your profile</h2>
-    <form>
-      <label for="first-name">First name</label>
-      <input type="text" id="first-name" placeholder="Enter your first name">
-      <label for="last-name">Last name</label>
-      <input type="text" id="last-name" placeholder="Enter your last name">
-      <label for="email">Email</label>
-      <input type="text" id="email" placeholder="Enter your email">
-    </form>
+  <div class="inner-container">
+    <div class="form-block">
+      <h2 class="">Edit your profile</h2>
+      <form>
+        <label for="first-name">First name</label>
+        <input
+          type="text"
+          id="first-name"
+          placeholder="Enter your first name"
+        />
+        <label for="last-name">Last name</label>
+        <input type="text" id="last-name" placeholder="Enter your last name" />
+        <label for="email">Email</label>
+        <input type="text" id="email" placeholder="Enter your email" />
+      </form>
+    </div>
+    <div class="avatar-block">
+      <div class="image-preview"></div>
+      <button class="upload-avatar">
+        <img
+          src="data:image/png;base64,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"
+        />
+        Upload avatar
+      </button>
+    </div>
   </div>
-  <div class="avatar-block">
-    <div class="image-preview"></div>
-    <button class="upload-avatar">Upload avatar</button>
-  </div>
-  <button type="button">Update details</button>
+  <button type="button" class="btn-update">Update details</button>
 </div>

@@ -1,38 +1,87 @@
 .small-container {
+  height: auto;
   width: 580px;
   margin: 91px auto;
-  display: flex;
-  justify-content: space-between;
 
-  .form-block {
-    width: 327px;
+  .inner-container {
+    display: flex;
+    justify-content: space-between;
 
-    form {
+    .form-block {
+      width: 327px;
+
+      form {
+        display: flex;
+        flex-direction: column;
+
+        label {
+          margin-top: 20px;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 20px;
+          color: #3c4247;
+        }
+        input {
+          width: 100%;
+          height: 48px;
+          margin-top: 4px;
+          padding: 12px;
+          background-color: #fff;
+          border: 1px solid #bfc4ca;
+          border-radius: 6px;
+          outline: none;
+        }
+      }
+    }
+    .avatar-block {
+      width: 174px;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
+      margin-top: 54px;
 
-      label{
-        margin-top: 20px;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 20px;
-        color: #3c4247;
+      .image-preview {
+        width: 174px;
+        height: 174px;
+        background-color: #d0d4d9;
+        border-radius: 50%;
       }
-      input{
-        width: 100%;
-        height: 48px;
-        margin-top: 4px;
-        padding: 12px;
-        background-color: #fff;
-        border: 1px solid #BFC4CA;
-        border-radius: 6px;
-        outline: none;
 
+      .upload-avatar {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0 10px 0 10px;
+        width: 169px;
+        height: 48px;
+        background-color: #fff;
+        border: 1px solid #bfc4ca;
+        border-radius: 6px;
+        font-weight: 700;
+
+        &:hover {
+          cursor: pointer;
+          background-color: darken(#fff, 4%);
+        }
       }
     }
   }
-  .avatar-block {
-    width: 174px;
+
+  .btn-update{
+    width: 191px;
+    height: 48px;
+    margin-top: 43px;
+    background-color: #3884f2;
+    color: white;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: bold;
+    border-radius: 6px;
+
+    &:hover{
+      cursor: pointer;
+      background-color: darken(#3884f2, 10%);
+    }
   }
 }
