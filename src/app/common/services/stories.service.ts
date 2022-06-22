@@ -23,4 +23,8 @@ export class StoriesService {
   unlike(storyId: string) {
     return this.http.post(`${apiUrl}posts/${storyId}/unlike`, null);
   }
+
+  uploadAvatar(uploadData: FormData){
+    return this.http.post(`${apiUrl}posts/updateAvatar`, uploadData);
+  }
 }

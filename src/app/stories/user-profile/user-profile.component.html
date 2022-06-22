@@ -18,11 +18,11 @@
     <div class="avatar-block">
       <div class="image-preview">
         <label for="fileAvatar">
-          <img *ngIf="!avatarFile"
+          <img *ngIf="!avatarPreview"
             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAEAklEQVRoge2Zy0uVQRjGf5WKVt4WFd0hMm2Tmu6LLhAtuixKiv6CkiDosqjcWC0ii6Jll0W7Ft2vx+pvyIqE0BZZRkRa5FFQj6fF+47znU+jb775UIPzwDCeOTPPvM+Z9515Z4Q88pixWAvcAnqBrGPp1bE1U251CNuBNO4CwiUNbJti28exDOhXQ64Bq2JwrAJuKEe/ck45bqsBdzx5ZgF3leu2r1Gu2Ix1iZUJ8C0Dfiunt4uVAS3AW2CIaL59wnfSAE5EnHNIbTwNlIZJaoCPEYlM6QSKEhRSpJwuNnQT2PHKAiLeAJuA4gQNTBrFiGu/xYopBXEnI2ImCwijGCvmFIEPmxKaoBrx9xeIqwxo6QTagePAmoTm2oLY3gE2sH1XoxF4SXT/fgE0eM5ZolyDBIjjohC4Cowpzw/kgNyBrM48LdXATuC69snqmCtAgcf84/b7CKkEXmHPlFZk8/gXyoAzyC9pVqcipg3eQgqxIj4B9aHvFwFNwBEtTcDCUJ8GoAcrJs7KeAu5ihWxJNBeDzwFMkyMiwzwBKgL9F+CFXM5hh1eQhoR/06TuxKHgRHlGwDuAW3AReA+NlMeAZoD49YjbpbRv13gJcTsTq0hESaAzwPlk4yrAC5gN4agmLPa1u5oS2wh1djdyQR2PfIrZ4B9ETj2I2JGgFptKwf6lLvKwZ7YQkxydz3Q9lTbzjvwtOmYx4G2m9p2zIEntpB27b9TPy9CVmKAyd3pb6hAYmYUu5vtVu6UA08WyM52GGCwQutOrTcCs5G4+eXA8xPZvucAG7TtfWiOyIgjxGy1vVov1/pDDC4zxnB80XqpK1EcIWE3NJ9nxeAyYwyHsWfMlSiOkK9am5X5rHWcjNaMMRyLQ3M4IalgT+OWL1Uih+AosEDbTLA/d+CJHezmwNqh9TedeC56wYmIFiQNfwZ8D3G6HopAMgdiHXK4jSGH3b9wQPsOA+u0bcoPRJBMNYuk4gbN2BSljcndrBK4hE1RDgW+O4e7W4GnkAY1ZpDcJK8ZmzSmgQdIwngReIi9fwwDBwPjGpGbaobczDgKvNP4Kzquh9x9vxZJO0YD3KaMAo+w7oSONWn8pRh2eAspwLpYDxPT74XAXuzFag92dzJoxIpIMU0XK5A4MGIGkVQ8Sr5VjsSEefhIMY1XXYMC5GZnboR9SBa7C3kFnK+lBjknbmJ3pwziTok8PiT1HLQee1hGKSncAzuMnOcg80C32ZPUoAq5T6SQDPm3lvfI1noUWJ3QXFsR2ztAXrWziKD/6cm0BHiH2H4S5AG4Gytmi3aaqShBVsKI6EJiEJC0w4j5n0qX2p6DUiTp6yD6P3qmowwBrxF3Gl+JPPLII4888vDBH5wOBRRsCY+6AAAAAElFTkSuQmCC"
         /></label>
         <input type="file" id="fileAvatar" accept="image/*" (change)="onChangeAvatar($event)"/>
-        <img class="avatar-preview" [src]="avatarFile" *ngIf="avatarFile">
+        <img class="avatar-preview" [src]="avatarPreview" *ngIf="avatarPreview">
       </div>
       <button class="upload-avatar">
         <img
@@ -32,5 +32,5 @@
       </button>
     </div>
   </div>
-  <button type="button" class="btn-update">Update details</button>
+  <button type="button" class="btn-update" (click)="onUploadAvatar()">Update details</button>
 </div>
