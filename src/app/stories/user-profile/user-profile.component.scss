@@ -50,22 +50,22 @@
         align-items: center;
         justify-content: center;
 
-        label{
+        label {
           margin-top: 4px;
           cursor: pointer;
           opacity: 0.5;
-          img{
+          img {
             height: 50px;
             width: 50px;
             border-radius: 0;
           }
         }
 
-        input{
+        input {
           display: none;
         }
 
-        img{
+        img {
           width: 174px;
           height: 174px;
           border-radius: 50%;
@@ -92,7 +92,7 @@
     }
   }
 
-  .btn-update{
+  .btn-update {
     width: 191px;
     height: 48px;
     margin-top: 43px;
@@ -103,7 +103,7 @@
     font-weight: bold;
     border-radius: 6px;
 
-    &:hover{
+    &:hover {
       cursor: pointer;
       background-color: darken(#3884f2, 10%);
     }
