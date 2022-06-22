@@ -54,10 +54,21 @@
           margin-top: 4px;
           cursor: pointer;
           opacity: 0.5;
+          img{
+            height: 50px;
+            width: 50px;
+            border-radius: 0;
+          }
         }
 
         input{
           display: none;
+        }
+
+        img{
+          width: 174px;
+          height: 174px;
+          border-radius: 50%;
         }
       }
 

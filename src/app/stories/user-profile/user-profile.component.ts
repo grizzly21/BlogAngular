@@ -1,3 +1,4 @@
+import { renderFlagCheckIfStmt } from '@angular/compiler/src/render3/view/template';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,13 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileComponent{
 
-  avatarFile!: File;
+  avatarFile!: string;
 
   constructor() { }
 
   onChangeAvatar(event: any){
-    this.avatarFile = <File>event.target.files[0];
-    console.log(this.avatarFile)
-  }
+    const reader = new FileReader();
 
+    const file = event.target.files[0];
+    reader.readAsDataURL(file);
+
+    reader.onload = () => {
+      this.avatarFile = reader.result as string;
+
+    }
+  }
 }
