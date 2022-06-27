@@ -26,7 +26,6 @@ export class StoryComponent implements OnInit{
     this.storiesService.getStoriesById(this.id).subscribe(
       (next) => {
         this.story = next;
-        console.log(next)
       },
       (err) => {
         console.log(err);

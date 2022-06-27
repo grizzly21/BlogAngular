@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { apiUrl } from '../api-url';
 import { IStory } from '../interfaces/story.interface';
+import { IUser } from '../interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -28,5 +29,9 @@ export class StoriesService {
 
   uploadAvatar(uploadData: FormData){
     return this.http.post(`${apiUrl}posts/updateAvatar`, uploadData);
+  }
+
+  getUserInfo(): Observable<IUser>{
+    return this.http.get<IUser>(`${apiUrl}user/info`);
   }
 }

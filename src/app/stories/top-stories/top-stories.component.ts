@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { apiUrl } from 'src/app/common/api-url';
 import { IStory } from 'src/app/common/interfaces/story.interface';
 import { StoriesService } from 'src/app/common/services/stories.service';
 
@@ -10,6 +11,7 @@ import { StoriesService } from 'src/app/common/services/stories.service';
 export class TopStoriesComponent implements OnInit {
   constructor(private storiesService: StoriesService) {}
 
+  url: string = apiUrl;
   allStories: IStory[] = [];
 
   ngOnInit(): void {

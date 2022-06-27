@@ -78,9 +78,13 @@
   margin-right: 24px;
 
   img {
-    height: 32px;
+    height: 38px;
+    width: 38px;
+    margin: 3px 0 0 0;
+    object-fit: cover;
+    border-radius: 50%;
 
-    &:hover {
+    &:hover{
       cursor: pointer;
     }
   }
