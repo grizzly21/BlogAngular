@@ -14,7 +14,9 @@ export class StoriesService {
     return this.http.get<IStory[]>(apiUrl + 'posts');
   }
 
-  getStoriesById() {}
+  getStoriesById(storyId: string): Observable<IStory> {
+    return this.http.get<IStory>(`${apiUrl}posts/${storyId}`)
+  }
 
   like(storyId: string) {
     return this.http.post(`${apiUrl}posts/${storyId}/like`, null);

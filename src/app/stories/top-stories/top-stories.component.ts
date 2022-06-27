@@ -16,10 +16,9 @@ export class TopStoriesComponent implements OnInit {
     this.storiesService.getAllStories().subscribe(
       (response) => {
         this.allStories = response;
-        console.log(this.allStories)
       },
       (err) => {
-        console.log(err);
+        alert("Something went wrong...")
       }
     );
   }
