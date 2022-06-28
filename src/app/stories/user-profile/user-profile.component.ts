@@ -33,10 +33,10 @@ export class UserProfileComponent{
     this.storiesService.uploadAvatar(uploadData)
       .subscribe(
         (next) => {
-          console.log(next)
+          alert('Avatar upload succesfully');
         },
         (err) => {
-          console.log(err)
+          alert('Something went wrong...')
         }
       )
   }

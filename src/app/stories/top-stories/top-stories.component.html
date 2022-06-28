@@ -7,14 +7,14 @@
 <div class="story-board">
   <div class="story-item" *ngFor="let story of allStories">
     <div class="story-item-header">
-      <img alt="#" src="../../../assets/icons/profile-icon.png" />
+      <img alt="avatar" [src]="url + story.author.avatarUrl" />
       <span class="story-item-header-name">{{ story.author.displayName }}</span>
       <span class="story-item-header-date"
         >on {{ story.createdDate | date: "longDate" }}</span
       >
     </div>
     <div class="story-item-image">
-      <img alt="#" src="https://via.placeholder.com/283x100.png" />
+      <img alt="storyImage" [src]="url + story.imageUrl" />
     </div>
     <h4 class="story-item-paragraph">{{ story.title }}</h4>
     <p class="story-item-article">
